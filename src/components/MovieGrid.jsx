@@ -1,17 +1,19 @@
-import p1 from './images/hp_kf_2001.jpg';
-import p2 from './images/hp_kt_2002.jpg';
-import p3 from './images/hp_wa_2004.jpg';
-import p4 from './images/hp_co_2005.jpg';
-import p5 from './images/hp_zf_2007.jpg';
-import p6 from './images/hp_kp_2009.jpg';
-import p7 from './images/hp_is_2010.jpg';
-import p8 from './images/hp_is_2011.jpg';
-import React from 'react';
-import './style.css'
-import Grid from "./grid";
-import Item from "./item";
+import React, {useState} from 'react';
+import './style.css';
+import './items.css';
+import {Link} from 'react-router-dom';
+import {FaStar} from "react-icons/fa";
+import p1 from "./images/hp_kf_2001.jpg";
+import p2 from "./images/hp_kt_2002.jpg";
+import p3 from "./images/hp_wa_2004.jpg";
+import p4 from "./images/hp_co_2005.jpg";
+import p5 from "./images/hp_zf_2007.jpg";
+import p6 from "./images/hp_kp_2009.jpg";
+import p7 from "./images/hp_is_2010.jpg";
+import p8 from "./images/hp_is_2011.jpg";
 
-const Main = () => {
+const MovieGrid = () => {
+    const [visibleMovies, setVisibleMovies] = useState(9);
 
     const movies = [
         {
@@ -79,21 +81,31 @@ const Main = () => {
             rating: 7.7,
         },
     ];
+    const handleShowMore = () => {
+        setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 9);
+    };
 
     return (
-        <div className="main">
-            <div className="main-box">
-                <section className="sectionGrid">
-                    <h2>Filmy</h2>
-                    <Grid columns={5}>
-                        {movies.map((movie) => (
-                            <Item key={movie.id} movie={movie} />
-                        ))}
-                    </Grid>
-                </section>
-            </div>
+        <div className="movie-grid">
+            {movies.slice(0, visibleMovies).map((movie) => (
+                <Link to={`/films/${encodeURIComponent(movie.title)}`} key={movie.id}>
+                    <div className="item">
+                        <div className="rating-container">
+                            <div className="rating">
+                                <FaStar color="white" />
+                                <span>{movie.rating}</span>
+                            </div>
+                        </div>
+                        <img src={movie.image} alt={movie.title} />
+                        <h3>{movie.title}</h3>
+                        <div className="details">
+                            <p>{`${movie.genre}, ${movie.year}`}</p>
+                        </div>
+                    </div>
+                </Link>
+            ))}
         </div>
     );
 };
 
-export default Main;
+export default MovieGrid;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './items.css'
 import {FaStar} from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Item = ({ movie }) => {
     const {
@@ -13,7 +14,21 @@ const Item = ({ movie }) => {
     } = movie;
 
     return (
-        <div className="item">
+        // <div className="item">
+        //     <div className="rating-container">
+        //         <div className="rating">
+        //             <FaStar color="white" />
+        //             <span>{rating}</span>
+        //         </div>
+        //     </div>
+        //     <img src={image} alt={title} />
+        //     <h3>{title}</h3>
+        //     <div className="details">
+        //         <p>{genre}, {year}</p>
+        //     </div>
+        // </div>
+
+        <Link to={`/movie/${id}`} className="item">
             <div className="rating-container">
                 <div className="rating">
                     <FaStar color="white" />
@@ -25,7 +40,7 @@ const Item = ({ movie }) => {
             <div className="details">
                 <p>{genre}, {year}</p>
             </div>
-        </div>
+        </Link>
     );
 };
 

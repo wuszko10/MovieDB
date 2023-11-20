@@ -50,3 +50,7 @@ h3 {
     padding: 0;
     color: lightblue;
 }
+
+a {
+    text-decoration: none;
+}
