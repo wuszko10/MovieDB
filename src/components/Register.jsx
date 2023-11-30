@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css'
 import {Link, useNavigate} from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
 
     const navigate = useNavigate();
 
@@ -14,23 +14,25 @@ const Login = () => {
         // Jeśli uwierzytelnianie jest udane, możesz przekierować na stronę główną
         // Przykładowo:
         // if (successfulAuthentication) {
-        navigate("/");
+        navigate("/login");
         // }
     };
 
     return (
         <div className="login-box">
             <div className="login-container">
-                <h2>Zaloguj się</h2>
+                <h2>Zarejestruj się</h2>
                 <form>
+                    <input type="text" id="email" name="email" placeholder="Adres e-mail" />
+                    <input type="text" id="firstname" name="firtsname" placeholder="Imię" />
                     <input type="text" id="login" name="login" placeholder="Login" />
                     <input type="password" id="password" name="password" placeholder="Hasło"/>
-                    <button type="submit" onClick={handleLogin} >Zaloguj się</button>
+                    <button type="submit" onClick={handleLogin}>Zarejestruj się</button>
                 </form>
-                <p>Nie masz jeszcze konta? <Link to="/register" className="login-link-text">Zarejestruj się</Link></p>
+                <p>Masz już konto? <Link to="/login" className="login-link-text">Zaloguj się</Link></p>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Register;

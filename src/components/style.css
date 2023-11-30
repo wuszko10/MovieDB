@@ -12,7 +12,7 @@ h2 {
     padding: 60px 0 120px 0;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
 }
 
 .sectionGrid {
@@ -142,5 +142,155 @@ h2 {
     justify-content: center;
     margin: 0 auto;
     padding:  10px 20px;
+}
+
+/* ########### login/register ############# */
+
+.login-box {
+    display: flex;
+    min-height: 85vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    text-align: center;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 20px;
+    flex-direction: column;
+    background-color: #ffffff40;
+    row-gap: 10px;
+}
+
+.login-container h2 {
+    color: white;
+    font-family: "Montserrat ExtraBold", serif;
+    font-size: 35px;
+    margin: 0 0 30px 0;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.login-container input {
+    min-width: 250px;
+    background-color: #00000000;
+    color: white;
+    margin-bottom: -2px;
+    font-size: 15px;
+    padding: 9px 13px;
+    font-family: 'Lato Regular', serif;
+    outline: none;
+    border: #ffffff80 1px solid;
+    border-radius: 5px;
+}
+
+.login-container button {
+    background-color: #FF424F;
+    color: #fff;
+    font-size: 15px;
+    font-family: "Montserrat SemiBold", serif;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-width: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.login-container button:hover {
+    background-color: #fff;
+    color: #FF424F;
+}
+
+.login-container .login-link-text {
+    color: black;
+    font-weight: bold;
+}
+
+
+/* ########### movie Details ############# */
+
+.movie-box {
+    column-gap: 50px;
+    align-items: center;
+}
+
+.movie-box-first-column{
+    min-width: 40%;
+}
+
+.movie-box-second-column{
+    display: flex;
+    flex-direction: column;
+    min-width: 60%;
+    text-align: left;
+    padding-top: 50px;
+    row-gap: 20px;
+}
+
+.movie-box-second-column h2{
+    font-family: "Montserrat ExtraBold", serif;
+    font-size: 50px;
+    margin: 0;
+}
+
+.movie-box-second-column h3{
+    font-family: "Montserrat Regular", serif;
+    font-size: 20px;
+    margin: 0;
+    color: gray;
+}
+
+.movie-box-second-column p{
+    font-family: "Lato Regular", serif;
+    font-size: 17px;
+    margin: 0;
+    color: white;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+}
+
+.movie-box-second-column table {
+    color: white;
+}
+
+.movie-box-detail-row {
+    display: flex;
+}
+
+.Flex {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Flex-item {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: gray;
+}
+
+.Flex-item:not(:last-child)::after {
+    content: "";
+    border: 1px solid gray;
+    height: 15px;
+    margin: 0 15px;
+}
+
+.Flex-item:last-child::after {
+    content: none;
 }
 
