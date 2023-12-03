@@ -11,7 +11,7 @@ const MovieGrid = () => {
     const { movies } = useMovies();
 
     const handleItem = (title, id) => {
-        navigate(`/films/${encodeURIComponent(title)}/${id}`)
+        navigate(`/details/${encodeURIComponent(title)}/${id}`)
     };
 
     return (

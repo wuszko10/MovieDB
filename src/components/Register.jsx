@@ -14,7 +14,7 @@ const Register = () => {
         // Jeśli uwierzytelnianie jest udane, możesz przekierować na stronę główną
         // Przykładowo:
         // if (successfulAuthentication) {
-        navigate("/login");
+        navigate("/signin");
         // }
     };
 
@@ -22,14 +22,14 @@ const Register = () => {
         <div className="login-box">
             <div className="login-container">
                 <h2>Zarejestruj się</h2>
-                <form>
-                    <input type="text" id="email" name="email" placeholder="Adres e-mail" />
-                    <input type="text" id="firstname" name="firtsname" placeholder="Imię" />
+                <form className="form-global">
                     <input type="text" id="login" name="login" placeholder="Login" />
+                    <input type="text" id="name" name="name" placeholder="Nazwa" />
+                    <input type="text" id="email" name="email" placeholder="E-mail" />
                     <input type="password" id="password" name="password" placeholder="Hasło"/>
                     <button type="submit" onClick={handleLogin}>Zarejestruj się</button>
                 </form>
-                <p>Masz już konto? <Link to="/login" className="login-link-text">Zaloguj się</Link></p>
+                <p>Masz już konto? <Link to="/signin" className="login-link-text">Zaloguj się</Link></p>
             </div>
         </div>
     );

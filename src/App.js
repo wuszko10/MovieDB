@@ -9,6 +9,7 @@ import SearchResults from "./components/SearchResults";
 import MovieDetails from "./components/MovieDetails";
 import Register from "./components/Register";
 import {MoviesProvider} from "./components/MoviesContext";
+import AddMovie from "./components/AddMovie";
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
                   <Header />
                   <Routes>
                       <Route path="/" element={<Main />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/register" element={<Register />} />
+                      <Route path="/signin" element={<Login />} />
+                      <Route path="/signup" element={<Register />} />
+                      <Route path="/add" element={<AddMovie />} />
                       <Route path="/search/:query" element={<SearchResults />} />
-                      <Route path="/films/:title/:id" element={<MovieDetails />} />
+                      <Route path="/details/:title/:id" element={<MovieDetails />} />
                   </Routes>
                   <Footer />
               </div>
