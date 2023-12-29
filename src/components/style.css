@@ -237,7 +237,7 @@ h2 {
 /* ########### movie Details ############# */
 
 .movie-box {
-    row-gap: 50px;
+    gap: 50px;
     align-items: center;
 }
 
@@ -324,10 +324,7 @@ h2 {
 }
 
 .form-add-movie {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dwie kolumny o równej szerokości */
-    gap: 40px; /* Odstęp między kolumnami */
-    align-items: center;
+    display: flex;
 }
 
 .form-right-column {
@@ -338,7 +335,7 @@ h2 {
 }
 
 .form-left-column > * {
-    width: 85%;
+    width: 900px;
 }
 
 .form-left-column{
@@ -357,6 +354,10 @@ h2 {
     font-family: "Montserrat SemiBold", serif;
     font-size: 20px;
     color: white;
+}
+
+.form-left-column button {
+    width: 200px;
 }
 
 .custom-file-upload {
@@ -394,4 +395,45 @@ h2 {
 
 #videoPreview {
     border-radius: 15px;
+}
+
+.show-more-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-more-button button {
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-family: 'Montserrat SemiBold', serif;
+    background-color: lightgray;
+}
+
+.show-more-button button:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+.add-movie-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #FF424F; /* Kolor tła przycisku (możesz dostosować) */
+    color: #fff; /* Kolor ikony (możesz dostosować) */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* Ustaw zaokrąglone krawędzie dla efektu okrągłego przycisku */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.add-movie-button:hover {
+    background-color: white;
+    color: #FF424F;
+    cursor: pointer;
 }

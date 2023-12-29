@@ -14,23 +14,25 @@ const MovieGrid = () => {
         navigate(`/details/${encodeURIComponent(title)}/${id}`)
     };
 
+    const handleShowMore = () => {
+        setVisibleMovies(prevVisibleMovies => prevVisibleMovies + 9);
+    };
+
     return (
         <div className="movie-grid">
             {movies.slice(0, visibleMovies).map((movie) => (
-                <div className="item" onClick={ () => handleItem(movie.title, movie.id)}>
-                    <div className="rating-container">
-                        <div className="rating">
-                            <FaStar color="white" />
-                            <span>{movie.rating}</span>
-                        </div>
-                    </div>
+                <div className="item" key={movie.id} onClick={() => handleItem(movie.title, movie.id)}>
                     <img src={movie.image} alt={movie.title} />
                     <h3>{movie.title}</h3>
-                    <div className="details">
-                        <p>{`${movie.genre}, ${movie.year}`}</p>
-                    </div>
                 </div>
             ))}
+            {visibleMovies < movies.length && (
+                <div  className="show-more-button">
+                    <button onClick={handleShowMore}>
+                        Więcej
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

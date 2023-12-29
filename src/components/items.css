@@ -54,3 +54,11 @@ h3 {
 a {
     text-decoration: none;
 }
+
+.item:hover {
+    cursor: pointer;
+}
+
+.item:hover h3 {
+    text-decoration: underline;
+}
