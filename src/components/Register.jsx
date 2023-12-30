@@ -27,6 +27,10 @@ const Register = () => {
     const handleRegistration = async (event) => {
         event.preventDefault();
 
+        if (!formData.name || !formData.email || !formData.password) {
+            return;
+        }
+
         axios
             .post('https://at.usermd.net/api/user/create', {
                 name: formData.name,  // Fix here

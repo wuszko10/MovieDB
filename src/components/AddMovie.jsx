@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 const AddMovie = () => {
@@ -87,6 +87,7 @@ const AddMovie = () => {
                         </button>
                     </div>
                 </form>
+                <Link to="/delete" className="login-link-text-gray">Usuń film</Link>
             </div>
         </div>
     );

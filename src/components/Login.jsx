@@ -28,6 +28,10 @@ const Login = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
 
+        if (!formData.login || !formData.password) {
+            return;
+        }
+
         axios
             .post('https://at.usermd.net/api/user/auth', {
                 login: formData.login,
@@ -60,7 +64,7 @@ const Login = () => {
                     <input type="password" id="password" name="password" placeholder="Hasło" value={formData.email} onChange={handleInputChange}/>
                     <button type="submit" onClick={handleLogin} >Zaloguj się</button>
                 </form>
-                <p>Nie masz jeszcze konta? <Link to="/signup" className="login-link-text">Zarejestruj się</Link></p>
+                <p>Nie masz jeszcze konta? <Link to="/signup" className="login-link-text-gray">Zarejestruj się</Link></p>
             </div>
         </div>
     );
