@@ -45,12 +45,12 @@ const MovieDetails = () => {
                 <table>
                     <tbody>
                     <tr>
-                        <td className="td">Aktorzy:</td>
-                        <td>{movieDetails.mainActors}</td>
+                        <td className="td">Ocena:</td>
+                        <td>{movieDetails.rate}</td>
                     </tr>
                     <tr>
-                        <td>Producent</td>
-                        <td>{movieDetails.producer}</td>
+                        <td>Rok produkcji</td>
+                        <td>{movieDetails.productionYear}</td>
                     </tr>
                     <tr>
                         <td>Gatunek</td>

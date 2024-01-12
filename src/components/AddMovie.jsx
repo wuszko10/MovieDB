@@ -9,6 +9,9 @@ const AddMovie = () => {
         title: '',
         image: '',
         content: '',
+        rate: '',
+        productionYear : '',
+        genre: '',
     });
 
     const handleInputChange = (event) => {
@@ -27,7 +30,7 @@ const AddMovie = () => {
     const handleAdd = async (event) => {
         event.preventDefault();
 
-        if (!formData.title || !formData.image || !formData.content) {
+        if (!formData.title || !formData.image || !formData.content || !formData.rate || !formData.productionYear || !formData.genre) {
             return;
         }
 
@@ -35,7 +38,10 @@ const AddMovie = () => {
             .post('https://at.usermd.net/api/movies', {
                 title: formData.title,  // Fix here
                 image: formData.image,
-                content: formData.content
+                content: formData.content,
+                rate: formData.rate,
+                productionYear: formData.productionYear,
+                genre: formData.genre
             })
             .then((response) => {
                 handleChangeRoute();
@@ -47,6 +53,9 @@ const AddMovie = () => {
                     title: '',
                     image: '',
                     content: '',
+                    rate: '',
+                    productionYear : '',
+                    genre: '',
                 });
             });
     };
@@ -80,6 +89,30 @@ const AddMovie = () => {
                             placeholder="Opis"
                             rows="10"
                             value={formData.content}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            type="text"
+                            id="rate"
+                            name="rate"
+                            placeholder="Ocena"
+                            value={formData.rate}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            type="text"
+                            id="pubYear"
+                            name="pubYear"
+                            value={formData.productionYear}
+                            placeholder="Rok produkcji"
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            type="text"
+                            id="genre"
+                            name="genre"
+                            placeholder="Gatunek"
+                            value={formData.genre}
                             onChange={handleInputChange}
                         />
                         <button type="submit" onClick={handleAdd}>

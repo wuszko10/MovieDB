@@ -3,7 +3,7 @@ import './style.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const AddMovie = () => {
+const DeleteMovie = () => {
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     const [formData, setFormData] = useState({
@@ -38,18 +38,26 @@ const AddMovie = () => {
     const handleDelete = async (event) => {
         event.preventDefault();
 
-        if (!formData.selectedMovieId ) {
+        if (!formData.selectedMovieId) {
             return;
         }
 
         try {
-            const response = await axios.delete(`https://at.usermd.net/api/movie/${formData.selectedMovieId}`);
+            const token = localStorage.getItem('token');
+
+            const headers = {
+                Authorization: `Bearer ${token}`
+            };
+
+            const response = await axios.delete(`https://at.usermd.net/api/movie/${formData.selectedMovieId}`, { headers });
+
             if (!response.data) {
                 throw new Error('Network response was not ok');
             }
+
             handleChangeRoute();
         } catch (error) {
-            console.error('Error fetching movie details:', error);
+            console.error('Error deleting movie:', error);
         }
     };
 
@@ -83,4 +91,4 @@ const AddMovie = () => {
     );
 };
 
-export default AddMovie;
+export default DeleteMovie;

@@ -29,8 +29,17 @@ const MovieGrid = () => {
             <div  className="movie-grid">
                 {currentMovies.map((movie) => (
                     <div className="item" key={movie.id} onClick={() => handleItem(movie.title, movie.id)}>
+                        <div className="rating-container">
+                            <div className="rating">
+                                <FaStar color="white" />
+                                <span>{movie.rate ?? '0.0'}</span>
+                            </div>
+                        </div>
                         <img src={movie.image} alt={movie.title} />
                         <h3>{movie.title}</h3>
+                        <div className="details">
+                            <p>{`${movie.genre ?? " "}, ${movie.productionYear !== undefined && movie.productionYear !== null && movie.productionYear !== 0 ? movie.productionYear : ""}`}</p>
+                        </div>
                     </div>
                 ))}
             </div>
